@@ -1,6 +1,7 @@
 package com.example.railwayapplines.Config;
 
 import com.example.railwayapplines.Repository.RailwayLineRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ResourceLoader;
@@ -26,5 +27,9 @@ public class AppConfig {
         }
 
         return initializer;
+    }
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 }

@@ -5,6 +5,7 @@ import com.example.railwayapplines.Model.Dto.RailwayLineDto;
 import com.example.railwayapplines.Model.Entity.RailwayLine;
 import com.example.railwayapplines.Repository.RailwayLineRepository;
 import com.example.railwayapplines.Service.Exception.ObjectNotFoundException;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,45 +13,34 @@ import java.util.List;
 @Service
 public class RailwayLineService {
     private final RailwayLineRepository railwayLineRepository;
+    private final ModelMapper modelMapper;
 
-    public RailwayLineService(RailwayLineRepository repository) {
+    public RailwayLineService(RailwayLineRepository repository, ModelMapper modelMapper) {
         this.railwayLineRepository = repository;
+        this.modelMapper = modelMapper;
     }
 
     public List<RailwayLineDto> getAllLines() {
-        return railwayLineRepository.findAll().stream().map(RailwayLineService::Map).toList();
+        return railwayLineRepository.findAll().stream().map(r->modelMapper.map(r, RailwayLineDto.class)).toList();
     }
 
-    private static RailwayLineDto Map(RailwayLine railwayLine){
-        //todo:mapper
-        RailwayLineDto railwayLineDto = new RailwayLineDto();
-        railwayLineDto.setDescription(railwayLine.getDescription());
-        railwayLineDto.setLength(railwayLine.getLength());
-        railwayLineDto.setNumber(railwayLine.getNumber());
-        railwayLineDto.setRoute(railwayLine.getRoute());
-        railwayLineDto.setId(railwayLine.getId());
-        return railwayLineDto;
-    }
+
 
     public void deleteLine(Long id) {
         railwayLineRepository.deleteById(id);
     }
 
     public RailwayLineDto createLine(RailwayLineAddDto dto) {
-        //todo: mapper
-        RailwayLine railwayLine = new RailwayLine();
-        railwayLine.setDescription(dto.getDescription());
-        railwayLine.setLength(dto.getLength());
-        railwayLine.setNumber(dto.getNumber());
-        railwayLine.setRoute(dto.getRoute());
+
+        RailwayLine railwayLine = modelMapper.map(dto, RailwayLine.class);
         railwayLineRepository.save(railwayLine);
-        return Map(railwayLine);
+        return modelMapper.map(railwayLine, RailwayLineDto.class);
     }
 
     public RailwayLineDto getLineById(Long id) {
         return railwayLineRepository
                 .findById(id)
-                .map(RailwayLineService::Map)
+                .map(r-> modelMapper.map(r, RailwayLineDto.class))
                 .orElseThrow(ObjectNotFoundException::new);
     }
 }
