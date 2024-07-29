@@ -1,28 +1,24 @@
-package com.example.railwayapplines.Model.Entity;
+package com.example.railwayapplines.model.dto;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "railway_lines")
-public class RailwayLine {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+public class RailwayLineDto {
+
     private Long id;
-    @Column(nullable = false)
     private int number;
-    @Column(nullable = false)
     private String route;
-    @Column(nullable = false)
     private Double length;
-    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
-    public Long getId() {
-        return id;
+    public RailwayLineDto() {
     }
 
-    public void setId(Long id) {
+    public RailwayLineDto(Long id, int number, String route, Double length, String description) {
         this.id = id;
+        this.number = number;
+        this.route = route;
+        this.length = length;
+        this.description = description;
     }
 
     public int getNumber() {
@@ -55,5 +51,13 @@ public class RailwayLine {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

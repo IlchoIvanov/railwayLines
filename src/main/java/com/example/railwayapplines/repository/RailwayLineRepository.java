@@ -1,6 +1,6 @@
-package com.example.railwayapplines.Repository;
+package com.example.railwayapplines.repository;
 
-import com.example.railwayapplines.Model.Entity.RailwayLine;
+import com.example.railwayapplines.model.entity.RailwayLine;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

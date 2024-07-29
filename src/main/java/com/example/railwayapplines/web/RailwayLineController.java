@@ -1,8 +1,9 @@
-package com.example.railwayapplines.Web;
 
-import com.example.railwayapplines.Model.Dto.RailwayLineAddDto;
-import com.example.railwayapplines.Model.Dto.RailwayLineDto;
-import com.example.railwayapplines.Service.RailwayLineService;
+package com.example.railwayapplines.web;
+
+import com.example.railwayapplines.model.dto.RailwayLineAddDto;
+import com.example.railwayapplines.model.dto.RailwayLineDto;
+import com.example.railwayapplines.service.RailwayLineService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;

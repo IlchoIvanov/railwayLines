@@ -1,4 +1,4 @@
-package com.example.railwayapplines.Model.Dto;
+package com.example.railwayapplines.model.dto;
 
 
 import jakarta.validation.constraints.NotNull;
@@ -19,8 +19,20 @@ public class RailwayLineAddDto {
     @Size(min=5, message = "Минимум 5 символа")
     private String description;
 
+    public RailwayLineAddDto() {
+    }
+
+    public RailwayLineAddDto(int number, String route, Double length, String description) {
+        this.number = number;
+        this.route = route;
+        this.length = length;
+        this.description = description;
+    }
+
     @NotNull(message = "Въведете валидни данни")
     @Positive(message = "Номерът на жп линията трябва да е положително число")
+
+
     public int getNumber() {
         return number;
     }

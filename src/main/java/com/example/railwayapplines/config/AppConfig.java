@@ -1,6 +1,6 @@
-package com.example.railwayapplines.Config;
+package com.example.railwayapplines.config;
 
-import com.example.railwayapplines.Repository.RailwayLineRepository;
+import com.example.railwayapplines.repository.RailwayLineRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

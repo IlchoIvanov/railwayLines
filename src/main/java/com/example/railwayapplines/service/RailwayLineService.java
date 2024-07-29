@@ -1,10 +1,10 @@
-package com.example.railwayapplines.Service;
+package com.example.railwayapplines.service;
 
-import com.example.railwayapplines.Model.Dto.RailwayLineAddDto;
-import com.example.railwayapplines.Model.Dto.RailwayLineDto;
-import com.example.railwayapplines.Model.Entity.RailwayLine;
-import com.example.railwayapplines.Repository.RailwayLineRepository;
-import com.example.railwayapplines.Service.Exception.ObjectNotFoundException;
+import com.example.railwayapplines.model.dto.RailwayLineAddDto;
+import com.example.railwayapplines.model.dto.RailwayLineDto;
+import com.example.railwayapplines.model.entity.RailwayLine;
+import com.example.railwayapplines.repository.RailwayLineRepository;
+import com.example.railwayapplines.service.exception.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
